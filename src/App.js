@@ -1,9 +1,10 @@
 import './App.css';
+import MainPage from './components/MainPage'
 
 function App() {
   return (
     <div className="App">
-      <div className="MainPage"></div>
+      <MainPage />
       <div className="ListOfCharacters"></div>     
     </div>
   );
