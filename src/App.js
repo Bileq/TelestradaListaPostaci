@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Characters from './components/Characters';
 import MainPage from './components/MainPage'

@@ -3,34 +3,34 @@ import Character from "./Character";
 
 function Characters() {
     return (
-        <div className="Characters">
-            <div class="row">
-                <div class="col">
+        <div className="Characters mt-sm-5">
+            <div className="row">
+                <div className="col">
                     <Character />
                     <Character />
                     <Character />
                 </div>
-                <div class="col">
+                <div className="col">
                     <Character />
                     <Character />
                     <Character />
                 </div>
-                <div class="col">
+                <div className="col">
                     <Character />
                     <Character />
                     <Character />
                 </div>
-                <div class="col">
+                <div className="col">
                     <Character />
                     <Character />
                     <Character />
                 </div>
-                <div class="col">
+                <div className="col">
                     <Character />
                     <Character />
                     <Character />
                 </div>
-                <div class="col">
+                <div className="col">
                     <Character />
                     <Character />
                 </div>
