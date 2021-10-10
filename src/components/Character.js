@@ -1,15 +1,15 @@
 import "../App.css";
 import Image from "../images/mainPageBackground.png";
 
-function Character() {
+function Character({image, name}) {
     return (
         <>
         <button className="Btn">
             <div className="Character">
                 <div className="Avatar">
                     <img
-                        src={Image}
-                        alt="Avatar"
+                        src={image}
+                        alt={name}
                         width={300}
                         height={300}
                     ></img>
@@ -18,7 +18,7 @@ function Character() {
                     className="Name py-sm-3 text-center fw-bold fs-5"
                     style={{ color: "#00ADB5" }}
                 >
-                    Rick Sanchez
+                    {name}
                 </div>
             </div>
         </button>
