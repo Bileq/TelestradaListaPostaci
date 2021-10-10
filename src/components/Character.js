@@ -1,5 +1,4 @@
 import "../App.css";
-import Image from "../images/mainPageBackground.png";
 
 function Character({image, name}) {
     return (
@@ -12,11 +11,13 @@ function Character({image, name}) {
                         alt={name}
                         width={300}
                         height={300}
+                        className="CharacterImg"
                     ></img>
                 </div>
                 <div
                     className="Name py-sm-3 text-center fw-bold fs-5"
                     style={{ color: "#00ADB5" }}
+                    //#00ADB5
                 >
                     {name}
                 </div>

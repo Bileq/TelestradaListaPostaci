@@ -30,7 +30,7 @@ function App() {
         return (
             <div className="App">
                 <MainPage />
-                <Characters/>
+                <Characters items={items}/>
             </div>
         );
     }
