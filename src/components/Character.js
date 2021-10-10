@@ -10,35 +10,18 @@ function Character({image, name}) {
                         src={image}
                         alt={name}
                         width={300}
-                        height={300}
                         className="CharacterImg"
                     ></img>
                 </div>
                 <div
-                    className="Name py-sm-3 text-center fw-bold fs-5"
+                    className="Name py-3 text-center fw-bold fs-5"
                     style={{ color: "#00ADB5" }}
-                    //#00ADB5
                 >
                     {name}
                 </div>
             </div>
         </button>
-        <div style={{height: '5rem'}}></div>
         </>
-        /* <div className="Avatar text-center">
-                    <img
-                        src={Image}
-                        alt="Avatar"
-                        width={300}
-                        height={300}
-                    ></img>
-                </div>
-                <div
-                    className="Name pt-4 text-center fw-bold fs-4"
-                    style={{ color: "#00ADB5" }}
-                >
-                    Rick Sanchez
-                </div> */
     );
 }
 
