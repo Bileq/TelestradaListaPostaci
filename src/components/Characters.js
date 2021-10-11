@@ -1,7 +1,7 @@
 import "../App.css";
 import Character from "./Character";
 
-function Characters({ items }) {
+function Characters({ items, handleClick }) {
     return (
         <div className="Characters mt-5">
             <div className="container">
@@ -10,10 +10,10 @@ function Characters({ items }) {
                         <div
                             className="col py-5 p-lg-1"
                             key={item.id}
-                            
                         >
                             {/* TODO: ALL OF THOSE PROPS ARE PROBABLY NOT NECESSARY */}
                             <Character
+                                handleClick={handleClick}
                                 name={item.name}
                                 status={item.status}
                                 species={item.species}

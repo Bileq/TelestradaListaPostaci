@@ -1,5 +1,6 @@
 .App {
   background: black;
+  position: relative;
 }
 .Btn {
   padding: 0;
@@ -25,7 +26,19 @@
   opacity: 0.8;
   font-size: 1rem;
 }
+.CharacterInfo{
+  background-color: yellow;
+  position: sticky;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 1000px;
+  height: 100vh;
+}
 .Characters {
+  z-index: 1;
   width: 350px;
   margin-left: auto;
   margin-right: auto;
@@ -36,6 +49,23 @@
   background: #202020;
   -webkit-box-shadow: 6px -6px 44px 14px rgba(85, 85, 85, 0.82); 
   box-shadow: 6px -6px 44px 14px rgba(85, 85, 85, 0.82);
+}
+/* CSSTransition react */
+.animateCharacterInfo-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.animateCharacterInfo-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.animateCharacterInfo-exit {
+  opacity: 1;
+}
+.animateCharacterInfo-exit-active {
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }
 /* medium and bigger screen sizes */
 @media (min-width: 768px) {
@@ -59,7 +89,6 @@
   }
   .Name {
     position: absolute;
-    /* top: .5rem; */
     top: 0px;
     left: 0;
     width: 100%;
@@ -71,7 +100,7 @@
   }
   .Avatar:hover{
     transform: scale(.9);
-    filter: brightness(.2);
+    filter: brightness(.3);
   }
   /* Displays avatar animation and shows name at the same time */
   .Avatar:hover + .Name{
