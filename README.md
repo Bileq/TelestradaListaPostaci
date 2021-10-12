@@ -7,11 +7,10 @@ Zadanie rekrutacyjne dla Telestrada S.A.
 ## Gallery
 
 ### Main Page
-![MainPage](https://raw.githubusercontent.com/Bileq/TelestradaListaPostaci/main/gallery/MainPage.PNG?token=AOULJZXS7SADXZE5FFOQSLDBMWBVW)
-### Characters list
+![MainPage](https://user-images.githubusercontent.com/61388006/136969031-24ef76ad-0a40-4a1a-8913-3455364092fb.PNG)
 
-![CharactersList](https://raw.githubusercontent.com/Bileq/TelestradaListaPostaci/main/gallery/CharactersList.PNG?token=AOULJZSA3HGPF5YCJI2S3I3BMWBJU)
+### Characters list
+![CharactersList](https://user-images.githubusercontent.com/61388006/136968994-3056300e-9820-4376-818e-acacf7f0f80a.PNG)
 
 ### Current Character
-
-![CurrentCharacter](https://raw.githubusercontent.com/Bileq/TelestradaListaPostaci/main/gallery/CurrentCharacter.PNG?token=AOULJZQJ6XXHYRAFL2VTPKTBMWBQM)
+![CurrentCharacter](https://user-images.githubusercontent.com/61388006/136969009-b0c4a628-c5f6-4532-8b19-6896eeed415d.PNG)
