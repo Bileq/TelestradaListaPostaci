@@ -4,6 +4,10 @@
 
 Zadanie rekrutacyjne dla Telestrada S.A.
 
+## Preview
+To see this project, visit this site [RickAndMortyCharacterList](https://rick-and-morty-character-tele.herokuapp.com/)
+
+
 ## Gallery
 
 ### Main Page
