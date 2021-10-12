@@ -11,18 +11,12 @@ function Characters({ items, handleClick, getCurrentCharacter }) {
                             className="col py-5 p-lg-1"
                             key={item.id}
                         >
-                            {/* TODO: ALL OF THOSE PROPS ARE PROBABLY NOT NECESSARY */}
                             <Character
                                 handleClick={handleClick}
                                 getCurrentCharacter={getCurrentCharacter}
                                 id={item.id}
                                 name={item.name}
-                                status={item.status}
-                                species={item.species}
-                                type={item.type}
-                                gender={item.gender}
                                 image={item.image}
-                                created={item.created}
                             />
                         </div>
                     ))}
