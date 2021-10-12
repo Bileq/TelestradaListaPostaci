@@ -1,11 +1,11 @@
 import "../App.css";
 
-function Character({image, name, handleClick}) {
+function Character({image, name, handleClick, id, getCurrentCharacter}) {
     return (
         <>
         <button className="Btn">
             <div className="Character">
-                <div className="Avatar" onClick={handleClick}>
+                <div className="Avatar" onClick={() => {handleClick(); getCurrentCharacter(id);}}>
                     <img
                         src={image}
                         alt={name}

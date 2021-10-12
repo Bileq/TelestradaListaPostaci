@@ -9,12 +9,18 @@ function App() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
+    const [item, setItem] = useState();
     const [characterInfoOn, setCharacterInfoOn] = useState(false);
+    const [currentId, setCurrentId] = useState(1);
 
     const handleClick = () => {
         setCharacterInfoOn(!characterInfoOn);
     };
 
+    const getCurrentCharacter = (id) => {
+        setCurrentId(id);
+    };
+    //Get all characters on mount
     useEffect(() => {
         fetch("https://rickandmortyapi.com/api/character")
             .then((res) => res.json())
@@ -29,6 +35,12 @@ function App() {
                 }
             );
     }, []);
+    //Get only wanted character onClick on this character
+    useEffect(() => {
+        fetch(`https://rickandmortyapi.com/api/character/${currentId}`)
+            .then((res) => res.json())
+            .then((result) => setItem(result));
+    }, [currentId]);
 
     if (error) {
         //TODO: Change to something went wrong msg
@@ -46,10 +58,13 @@ function App() {
                     classNames="animateCharacterInfo"
                     unmountOnExit
                 >
-                    {/* {characterInfoOn && <CharacterInfo items={items} handleClick={handleClick}/>} */}
-                    <CharacterInfo items={items} handleClick={handleClick} />
+                    <CharacterInfo item={item} handleClick={handleClick} />
                 </CSSTransition>
-                <Characters items={items} handleClick={handleClick} />
+                <Characters
+                    items={items}
+                    handleClick={handleClick}
+                    getCurrentCharacter={getCurrentCharacter}
+                />
             </div>
         );
     }

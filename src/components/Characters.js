@@ -1,7 +1,7 @@
 import "../App.css";
 import Character from "./Character";
 
-function Characters({ items, handleClick }) {
+function Characters({ items, handleClick, getCurrentCharacter }) {
     return (
         <div className="Characters mt-5">
             <div className="container">
@@ -14,6 +14,8 @@ function Characters({ items, handleClick }) {
                             {/* TODO: ALL OF THOSE PROPS ARE PROBABLY NOT NECESSARY */}
                             <Character
                                 handleClick={handleClick}
+                                getCurrentCharacter={getCurrentCharacter}
+                                id={item.id}
                                 name={item.name}
                                 status={item.status}
                                 species={item.species}
