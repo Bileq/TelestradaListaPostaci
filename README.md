@@ -1,8 +1,8 @@
-# TelestradaListaPostaci
+# ListaPostaci
 
 ## General info
 
-Zadanie rekrutacyjne dla Telestrada S.A.
+That is an recruitment task which I did in 5 days.
 
 ## Preview
 To see this project, visit this site [RickAndMortyCharacterList](https://rick-and-morty-character-tele.herokuapp.com/)
