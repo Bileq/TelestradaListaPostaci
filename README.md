@@ -2,7 +2,7 @@
 
 ## General info
 
-That is an recruitment task which I did in 5 days.
+That is an recruitment task for telestrada.
 
 ## Preview
 To see this project, visit this site [RickAndMortyCharacterList](https://rick-and-morty-character-tele.herokuapp.com/)
