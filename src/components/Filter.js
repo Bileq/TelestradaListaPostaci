@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import "../App.css";
 
-function Filter({filterName}) {
+function Filter({filterName, handleSubmit, handleChange}) {
     return (
-        <div></div>
+        <form onSubmit={handleSubmit}
+        className="form">
+            <input type="text" onChange={handleChange}></input>
+            <button type="submit">Filter</button>
+        </form>
     )
 }
 

@@ -16,16 +16,28 @@ function App() {
     const [currentId, setCurrentId] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
     const [pages, setPages] = useState(0);
-    const [name, setName] = useState('');
+    const [name, setName] = useState("");
+    const [filterSubmit, setFilterSubmit] = useState(false);
 
     const handleClick = () => setCharacterInfoOn(!characterInfoOn);
     const getCurrentCharacter = (id) => setCurrentId(id);
     const changePage = (currentPage) => setCurrentPage(currentPage);
-    const filterName = (name) => setName(name);
+
+    const handleChange = (e) => {
+        setName(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFilterSubmit(!filterSubmit);
+        setCurrentPage(1)
+    }
 
     //Get all characters and set amount of pages
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${name}`)
+        fetch(
+            `https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${name}`
+        )
             .then((res) => res.json())
             .then(
                 (result) => {
@@ -38,7 +50,8 @@ function App() {
                     setError(error);
                 }
             );
-    }, [currentPage]);
+    }, [currentPage, filterSubmit]);
+
     //Get only wanted character onClick on this character
     useEffect(() => {
         fetch(`https://rickandmortyapi.com/api/character/${currentId}`)
@@ -56,7 +69,10 @@ function App() {
         return (
             <div className="App">
                 <MainPage />
-                <Filter filterName={filterName}/>
+                <Filter
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                />
                 <Pagination
                     currentPage={currentPage}
                     changePage={changePage}
