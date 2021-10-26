@@ -79,7 +79,7 @@
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
-.PaginationBar, .form {
+.PaginationBar, .form, .ResultsNotFound {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -100,6 +100,11 @@
 }
 .PaginationBar > li > button:hover {
   background-color: orangered;
+}
+.ResultsNotFound {
+  color: white;
+  font-size: 2rem;
+  padding: 100px 0;
 }
 /* medium and bigger screen sizes */
 @media (min-width: 768px) {

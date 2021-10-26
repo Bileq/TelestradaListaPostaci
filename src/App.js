@@ -69,15 +69,14 @@ function App() {
         return (
             <div className="App">
                 <MainPage />
-                {items === undefined ? (
-                    //TODO: Style results not found
-                    <div>Results not found</div>
-                ) : (<>
                 <Filter
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                 />
-                
+                {items === undefined ? (
+                    //TODO: Style results not found
+                    <div className="ResultsNotFound">Results not found</div>
+                ) : (<>
                 <CSSTransition
                     in={characterInfoOn}
                     timeout={500}
