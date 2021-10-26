@@ -74,7 +74,6 @@ function App() {
                     handleSubmit={handleSubmit}
                 />
                 {items === undefined ? (
-                    //TODO: Style results not found
                     <div className="ResultsNotFound">Results not found</div>
                 ) : (<>
                 <CSSTransition
@@ -85,16 +84,18 @@ function App() {
                 >
                     <CharacterInfo item={item} handleClick={handleClick} />
                 </CSSTransition>
-                    <Pagination
-                    currentPage={currentPage}
-                    changePage={changePage}
-                    pages={pages}
-                />
+                
                     <Characters
                         items={items}
                         handleClick={handleClick}
                         getCurrentCharacter={getCurrentCharacter}
-                    /></>
+                    />
+                        <Pagination
+                    currentPage={currentPage}
+                    changePage={changePage}
+                    pages={pages}
+                />
+                    </>
                 )}
                 
             </div>

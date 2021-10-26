@@ -6,7 +6,6 @@ function Characters({ items, handleClick, getCurrentCharacter }) {
         <div className="Characters mt-5">
             <div className="container">
                 <div className="row row-cols-auto justify-content-center">
-                    
                     {items.map((item) => (
                         <div
                             className="col py-5 p-lg-1"

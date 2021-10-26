@@ -87,6 +87,7 @@
 }
 .PaginationBar > li {
   list-style-type: none;
+  padding-bottom: 15px;
 }
 .PaginationBar > li > button {
   border: none;
@@ -94,7 +95,7 @@
   margin-top: 15px;
   color: aqua;
   background: none;
-  font-size: 20px;
+  font-size: 16px;
   height: 60px;
   width: 60px;
 }
@@ -105,6 +106,26 @@
   color: white;
   font-size: 2rem;
   padding: 100px 0;
+}
+.form > input {
+  background: none;
+  color: white;
+  border: none;
+  border-bottom: 1px solid #00AAFF;
+  padding: 10px 0;
+  outline: none;
+}
+.form > button {
+  background: none;
+  border: none;
+  color: aqua;
+  margin-left: 10px;
+  height: 60px;
+  width: 80px;
+  font-size: 16px;
+}
+.form > button:hover {
+  background: #00AAFF;
 }
 /* medium and bigger screen sizes */
 @media (min-width: 768px) {
