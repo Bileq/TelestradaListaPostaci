@@ -4,6 +4,7 @@ import Characters from "./components/Characters";
 import MainPage from "./components/MainPage";
 import CharacterInfo from "./components/CharacterInfo";
 import Pagination from "./components/Pagination";
+import Filter from "./components/Filter";
 import { CSSTransition } from "react-transition-group";
 
 function App() {
@@ -15,35 +16,22 @@ function App() {
     const [currentId, setCurrentId] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
     const [pages, setPages] = useState(0);
+    const [name, setName] = useState('');
 
     const handleClick = () => setCharacterInfoOn(!characterInfoOn);
-
     const getCurrentCharacter = (id) => setCurrentId(id);
-
     const changePage = (currentPage) => setCurrentPage(currentPage);
+    const filterName = (name) => setName(name);
 
-    //Get pages amount
+    //Get all characters and set amount of pages
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/`)
-            .then((res) => res.json())
-            .then(
-                (result) => {
-                    setPages(result.info.pages);
-                },
-                (error) => {
-                    setError(error);
-                }
-            );
-    }, []);
-
-    //Get all characters on mount
-    useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
+        fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${name}`)
             .then((res) => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
                     setItems(result.results);
+                    setPages(result.info.pages);
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -68,6 +56,7 @@ function App() {
         return (
             <div className="App">
                 <MainPage />
+                <Filter filterName={filterName}/>
                 <Pagination
                     currentPage={currentPage}
                     changePage={changePage}
