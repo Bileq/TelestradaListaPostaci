@@ -79,6 +79,28 @@
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
+.PaginationBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 0;
+}
+.PaginationBar > li {
+  list-style-type: none;
+}
+.PaginationBar > li > button {
+  border: none;
+  margin: 0 1px;
+  margin-top: 15px;
+  color: aqua;
+  background: none;
+  font-size: 20px;
+  height: 60px;
+  width: 60px;
+}
+.PaginationBar > li > button:hover {
+  background-color: orangered;
+}
 /* medium and bigger screen sizes */
 @media (min-width: 768px) {
   .MainText {

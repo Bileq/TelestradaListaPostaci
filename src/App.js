@@ -3,6 +3,7 @@ import "./App.css";
 import Characters from "./components/Characters";
 import MainPage from "./components/MainPage";
 import CharacterInfo from "./components/CharacterInfo";
+import Pagination from "./components/Pagination";
 import { CSSTransition } from "react-transition-group";
 
 function App() {
@@ -12,17 +13,32 @@ function App() {
     const [item, setItem] = useState();
     const [characterInfoOn, setCharacterInfoOn] = useState(false);
     const [currentId, setCurrentId] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pages, setPages] = useState(0);
 
-    const handleClick = () => {
-        setCharacterInfoOn(!characterInfoOn);
-    };
+    const handleClick = () => setCharacterInfoOn(!characterInfoOn);
 
-    const getCurrentCharacter = (id) => {
-        setCurrentId(id);
-    };
+    const getCurrentCharacter = (id) => setCurrentId(id);
+
+    const changePage = (currentPage) => setCurrentPage(currentPage);
+
+    //Get pages amount
+    useEffect(() => {
+        fetch(`https://rickandmortyapi.com/api/character/`)
+            .then((res) => res.json())
+            .then(
+                (result) => {
+                    setPages(result.info.pages);
+                },
+                (error) => {
+                    setError(error);
+                }
+            );
+    }, []);
+
     //Get all characters on mount
     useEffect(() => {
-        fetch("https://rickandmortyapi.com/api/character")
+        fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
             .then((res) => res.json())
             .then(
                 (result) => {
@@ -34,7 +50,7 @@ function App() {
                     setError(error);
                 }
             );
-    }, []);
+    }, [currentPage]);
     //Get only wanted character onClick on this character
     useEffect(() => {
         fetch(`https://rickandmortyapi.com/api/character/${currentId}`)
@@ -52,6 +68,11 @@ function App() {
         return (
             <div className="App">
                 <MainPage />
+                <Pagination
+                    currentPage={currentPage}
+                    changePage={changePage}
+                    pages={pages}
+                />
                 <CSSTransition
                     in={characterInfoOn}
                     timeout={500}
@@ -64,6 +85,11 @@ function App() {
                     items={items}
                     handleClick={handleClick}
                     getCurrentCharacter={getCurrentCharacter}
+                />
+                <Pagination
+                    currentPage={currentPage}
+                    changePage={changePage}
+                    pages={pages}
                 />
             </div>
         );
