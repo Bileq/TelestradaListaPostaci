@@ -24,14 +24,14 @@ function App() {
     const changePage = (currentPage) => setCurrentPage(currentPage);
 
     const handleChange = (e) => {
-        setName(e.target.value)
-    }
+        setName(e.target.value);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setFilterSubmit(!filterSubmit);
-        setCurrentPage(1)
-    }
+        setCurrentPage(1);
+    };
 
     //Get all characters and set amount of pages
     useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
                 (result) => {
                     setIsLoaded(true);
                     setItems(result.results);
-                    setPages(result.info.pages);
+                    result.info === undefined ? void 0 : setPages(result.info.pages);
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -69,15 +69,15 @@ function App() {
         return (
             <div className="App">
                 <MainPage />
+                {items === undefined ? (
+                    //TODO: Style results not found
+                    <div>Results not found</div>
+                ) : (<>
                 <Filter
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                 />
-                <Pagination
-                    currentPage={currentPage}
-                    changePage={changePage}
-                    pages={pages}
-                />
+                
                 <CSSTransition
                     in={characterInfoOn}
                     timeout={500}
@@ -86,16 +86,18 @@ function App() {
                 >
                     <CharacterInfo item={item} handleClick={handleClick} />
                 </CSSTransition>
-                <Characters
-                    items={items}
-                    handleClick={handleClick}
-                    getCurrentCharacter={getCurrentCharacter}
-                />
-                <Pagination
+                    <Pagination
                     currentPage={currentPage}
                     changePage={changePage}
                     pages={pages}
                 />
+                    <Characters
+                        items={items}
+                        handleClick={handleClick}
+                        getCurrentCharacter={getCurrentCharacter}
+                    /></>
+                )}
+                
             </div>
         );
     }
